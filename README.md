@@ -1,8 +1,24 @@
+# CX CLUB
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Set up locally
 
-First, run the development server:
+After the repository is cloned, first go to the root directory and create a local next.js app
+
+```bash
+cd cx-club
+npx create-next-app cx-club --use-npm
+```
+
+Then move the dependencies out to the project and remove the local app which was just created
+
+```bash
+mv cx-club/node_modules ./
+rm -rf cx-club
+```
+
+And then you are good to go with running the development server:
 
 ```bash
 npm run dev
