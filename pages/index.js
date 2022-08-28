@@ -1,54 +1,51 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import Layout from '../components/layout'
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>CX CLUB</title>
-        <meta name="description" content="cx club" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    return (
+        <div>
+            <Head>
+                <title>CX CLUB</title>
+                <meta name="description" content="cx club" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
 
-      <main className={styles.main}>
-        <div className={styles.grid}>
-          <div className={styles.card}>
-            <p>CX CLUB</p>
-          </div>
-          <div className={styles.card}>
-            <p>搜索</p>
-          </div>
-          <div className={styles.card}>
-            <p>Connect wallet</p>
-          </div>
-        </div>
+            <Layout>
+                <div className={styles.recommended_banner}>
+                    推荐社区
+                    <Link href="/community">
+                        <div className={styles.recommended_banner_item}>
+                            Example community
+                        </div>
+                    </Link>
+                </div>
 
-        <div className={styles.description}>
-          <h2>推荐社区</h2>
-          <div className={styles.card}>
-            <Link href="/community" className={styles.card}>
-              Example community
-            </Link>
-          </div>
-        </div>
+                <div className={styles.home_content}>
+                    <div className={styles.home_content_posts}>
+                        <div className={styles.home_content_posts_tab}>
+                            热门/我的
+                        </div>
+                        <div className={styles.home_content_posts_list}>
+                            <Link href="/post">
+                                <div className={styles.home_content_posts_listitem}>
+                                    Example post                                    
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className={styles.home_content_top_communities}>
+                        Top 10 communities
+                        <Link href="/community">
+                            <div className={styles.home_content_top_communities_item}>
+                                community1
+                            </div>
+                        </Link>
+                    </div>
+                </div>
 
-        <div className={styles.description}>
-          <h2>热门/我的</h2>
-          <div className={styles.card}>
-            <Link href="/post" className={styles.card}>
-              Example post
-            </Link>
-          </div>
+            </Layout>
         </div>
-
-        <div className={styles.description}>
-          <p>Top 10 communities</p>
-          <Link href="/community" className={styles.card}>
-            community1
-          </Link>
-        </div>
-      </main>
-    </div>
-  )
+    );
 }
