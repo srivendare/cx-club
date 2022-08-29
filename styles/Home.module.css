@@ -41,6 +41,9 @@
     transition: color 0.15s ease, border-color 0.15s ease;
     height: 130px;
 }
+.home_content_posts_listitem:hover {
+    border-color: #0070f3;
+}
 
 .home_content_top_communities {
     margin-left: 3%;
@@ -52,6 +55,9 @@
     border-radius: 10px;
     transition: color 0.15s ease, border-color 0.15s ease;
     height: 60px;
+}
+.home_content_top_communities_item:hover {
+    border-color: #0070f3;
 }
 
 /* legacy below (to be deleted... later sometime) */
