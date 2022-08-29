@@ -7,10 +7,9 @@ const SearchInput: React.FC = () => {
     return (
         <Flex flexGrow={1} mr={2} align='center'>
             <InputGroup>
-                <InputLeftElement
-                    pointerEvents='none'
-                    children={<SearchIcon color='gray.300' mb={2} />}
-                />
+                <InputLeftElement pointerEvents='none'>
+                    <SearchIcon color='gray.300' mb={2} />
+                </InputLeftElement>
                 <Input
                     placeholder='Search Content'
                     fontSize='15px'
