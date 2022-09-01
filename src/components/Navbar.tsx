@@ -1,10 +1,8 @@
-import { PhoneIcon } from '@chakra-ui/icons';
-import { Flex, Image, Box, InputRightElement, Grid, GridItem } from '@chakra-ui/react';
+import { Flex, Image, Grid, GridItem } from '@chakra-ui/react';
 import React from 'react';
 // 1. import the icon from "react-icons", https://react-icons.github.io/react-icons
-import { FaWallet } from "react-icons/fa"
 import SearchInput from './SearchInput';
-
+import Wallet from "./Wallet";
 
 const Navbar: React.FC = () => {
 
@@ -23,7 +21,7 @@ const Navbar: React.FC = () => {
                     <GridItem w='200%' h='10' mt={2}> <SearchInput /> </GridItem>
                     <GridItem w='100%' h='10' />
                     <GridItem w='100%' h='10' />
-                    <GridItem w='100%' h='10' mt={3}> <Box as={FaWallet} size="25px" color="gray.200" /> </GridItem>
+                    <GridItem w='100%' h='10' mt={3}> <Wallet /> </GridItem>
 
                 </Grid>
 
@@ -31,6 +29,6 @@ const Navbar: React.FC = () => {
 
 
         </Flex>
-    )
-}
+    );
+};
 export default Navbar;
