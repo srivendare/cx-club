@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 import PostItem from './PostItem';
 import SearchInput from './SearchInput';
 import TopList from './TopList';
-import Wallet from './Wallet';
+import UserBadge from './UserBadge'
 
 
 interface Props {
@@ -34,7 +34,8 @@ const Layout: React.FC<Props> = ({ children }) => {
                     <PostItem />
                 </GridItem>
                 <GridItem colSpan={2}>
-                    {/* <TopList /> */}
+                    <UserBadge />
+                    <TopList /> */
                 </GridItem>
             </Grid>
 
