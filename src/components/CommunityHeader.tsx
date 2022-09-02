@@ -19,7 +19,6 @@ const CommunityHeader: React.FC<CommunityHeaderProps> = () => {
                         borderRadius="full"
                         boxSize="90px"
                         src="/favicon.ico"
-                        alt="Dan Abramov"
                         position="relative"
                         top={-3}
                         color="blue.500"
