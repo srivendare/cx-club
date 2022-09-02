@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
                     <GridItem w='200%' h='10' mt={2}> <SearchInput /> </GridItem>
                     <GridItem w='100%' h='10' />
                     <GridItem w='100%' h='10' />
-                    <GridItem w='100%' h='10' mt={3}> <Wallet /> </GridItem>
+                    <GridItem w='100%' h='10' mt={1}> <Wallet /> </GridItem>
 
                 </Grid>
 
