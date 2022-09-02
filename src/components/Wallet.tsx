@@ -38,7 +38,7 @@ const Wallet: React.FC = () => {
             return "";
         }
     };
-    
+
     const getCurrentWalletConnected = async () => {
         if (window.ethereum) {
             const addressArray: any = await window.ethereum.request({
@@ -95,11 +95,11 @@ const Wallet: React.FC = () => {
             disabled={walletAddress.length > 0}
             background="transparent"
         >
-            <Flex 
+            <Flex
                 padding='6px 8px'
                 color={walletAddress.length > 0 ? "green.400" : "grey.200"}
             >
-                {walletAddress.length > 0 ? "Connected" : "Connect your"}
+                {walletAddress.length > 0 ? "Connected" : "Connect your wallet"}
             </Flex>
             <Box
                 as={FaWallet}
