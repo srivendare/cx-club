@@ -35,7 +35,7 @@ const Layout: React.FC<Props> = ({ children }) => {
                 </GridItem>
                 <GridItem colSpan={2}>
                     <UserBadge />
-                    <TopList /> */
+                    <TopList />
                 </GridItem>
             </Grid>
 
