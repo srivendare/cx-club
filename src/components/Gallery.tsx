@@ -10,22 +10,28 @@ type Props = {
 const GalleryItem: React.FC<Props> = ({ children }) => {
     
     return (
-        <Link href="/community">
-            <Flex _hover={{
-                border: "5px solid white",
-                borderRadius: "15"
-            }}>
-                {children}
-            </Flex>
-        </Link>
+        <Flex>
+            <Spacer />
+            <Link href="/community">
+                <Flex 
+                    border="5px solid"
+                    borderColor="transparent"
+                    borderRadius="15"
+                    _hover={{
+                        borderColor: "white"
+                    }}>
+                    {children}
+                </Flex>
+            </Link>
+        </Flex>
     );
 };
 
 const Gallery: React.FC = () => {
 
     return (
-        <Flex align='center' mt={3}>
-            <Grid templateColumns='repeat(7, 1fr)' gap={5} mt={5}>
+        <Flex align='center' my={4}>
+            <Grid width="100%" templateColumns='repeat(7, 1fr)' gap={5} mt={5}>
                 <GridItem colSpan={1} >
                     <Flex>
                         <Spacer />
