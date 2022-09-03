@@ -12,11 +12,11 @@ const SideBar: React.FC<Props> = (props) => {
 
     return (
         <>
-            <Flex mt={3} fontSize='18' fontWeight='bold'>{title}</Flex>
+            <Flex mt={10} fontSize='18' fontWeight='bold'>{title}</Flex>
             <Flex
                 width='50%'
                 border='1px solid gray'
-                mt={5} p='3' bg='gray.600' borderRadius={15}>
+                my={5} p='3' bg='gray.600' borderRadius={15}>
                 {children}
             </Flex>
         </>

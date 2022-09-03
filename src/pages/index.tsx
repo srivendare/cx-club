@@ -19,7 +19,6 @@ const Home: NextPage = () => {
                     <PostItem />
                 </GridItem>
                 <GridItem colSpan={2}>
-                    <UserBadge />
                     <SideBar title='Top Communities'>
                         <List spacing={3}>
                             <ListItem _hover={{ bg: useColorModeValue('gray.500', 'gray.600') }}>
