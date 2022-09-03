@@ -1,12 +1,27 @@
 import { Box, Flex, Grid, GridItem, Image, Spacer } from '@chakra-ui/react';
+import Link from 'next/link';
 import React from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
-type GalleryProps = {
-
+type Props = {
+    children: React.ReactNode;
 };
 
-const Gallery: React.FC<GalleryProps> = () => {
+const GalleryItem: React.FC<Props> = ({ children }) => {
+    
+    return (
+        <Link href="/community">
+            <Flex _hover={{
+                border: "5px solid white",
+                borderRadius: "15"
+            }}>
+                {children}
+            </Flex>
+        </Link>
+    );
+};
+
+const Gallery: React.FC = () => {
 
     return (
         <Flex align='center' mt={3}>
@@ -23,34 +38,44 @@ const Gallery: React.FC<GalleryProps> = () => {
                     </Flex>
                 </GridItem>
                 <GridItem colSpan={1} >
-                    <Image
-                        height='120px'
-                        borderRadius={10}
-                        src="./arts/Rectangle 7.png" />
+                    <GalleryItem>
+                        <Image
+                            height='120px'
+                            borderRadius={10}
+                            src="./arts/Rectangle 7.png" />
+                    </GalleryItem>
                 </GridItem>
                 <GridItem colSpan={1} >
-                    <Image
-                        height='120px'
-                        borderRadius={10}
-                        src="./arts/Rectangle 8.png" />
+                    <GalleryItem>
+                        <Image
+                            height='120px'
+                            borderRadius={10}
+                            src="./arts/Rectangle 8.png" />
+                    </GalleryItem>
                 </GridItem>
                 <GridItem colSpan={1} >
-                    <Image
-                        height='120px'
-                        borderRadius={10}
-                        src="./arts/Rectangle 9.png" />
+                    <GalleryItem>
+                        <Image
+                            height='120px'
+                            borderRadius={10}
+                            src="./arts/Rectangle 9.png" />
+                    </GalleryItem>
                 </GridItem>
                 <GridItem colSpan={1} >
-                    <Image
-                        height='120px'
-                        borderRadius={10}
-                        src="./arts/Rectangle 10.png" />
+                    <GalleryItem>
+                        <Image
+                            height='120px'
+                            borderRadius={10}
+                            src="./arts/Rectangle 10.png" />
+                    </GalleryItem>
                 </GridItem>
                 <GridItem colSpan={1} >
-                    <Image
-                        height='120px'
-                        borderRadius={10}
-                        src="./arts/Rectangle 11.png" />
+                    <GalleryItem>
+                        <Image
+                            height='120px'
+                            borderRadius={10}
+                            src="./arts/Rectangle 11.png" />
+                    </GalleryItem>
                 </GridItem>
                 <GridItem colSpan={1}>
                     <Box

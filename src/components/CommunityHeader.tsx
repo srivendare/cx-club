@@ -1,12 +1,7 @@
-import { Box, Flex, Icon, Button, Text, Image } from '@chakra-ui/react';
+import { Box, Flex, Button, Text, Image } from '@chakra-ui/react';
 import React from 'react';
-import { FaReddit } from 'react-icons/fa';
 
-type CommunityHeaderProps = {
-
-};
-
-const CommunityHeader: React.FC<CommunityHeaderProps> = () => {
+const CommunityHeader: React.FC = () => {
 
     return (
         <Flex direction="column" width="100%" height="190px" mt={2}>
