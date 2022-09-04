@@ -1,14 +1,27 @@
 import { Grid, GridItem, List, Image, ListItem, useColorModeValue, Flex } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 import CommunityNav from '../components/CommunityNav'
 import Gallery from '../components/Gallery'
 import PostItem from '../components/PostItem'
 import SideBar from '../components/Sidebar'
-import UserBadge from '../components/UserBadge'
+import { Thread } from '../utils/content';
+import { getUser } from '../utils/user';
+
 
 const Home: NextPage = () => {
+    const [users, setUsers] = useState([]);
+    const [threads, setThreads] = useState([]);
+
+    useEffect(() => {
+        const usersData = window.localStorage.getItem('users');
+        if (usersData) setUsers(JSON.parse(usersData));
+        const threadsData = window.localStorage.getItem('threads');
+        if (threadsData) setThreads(JSON.parse(threadsData));
+    }, []);
+
     return (
         <>
             <Gallery />
@@ -16,7 +29,15 @@ const Home: NextPage = () => {
                 <GridItem colSpan={1} />
                 <GridItem colSpan={3} >
                     <CommunityNav />
-                    <PostItem />
+                    {threads.map((thread: Thread) => {
+                        const author = getUser(thread.uid, users);
+                        if (author) {
+                            const authorName = author.name;
+                            return (<PostItem key={thread.uid} thread={thread} author={authorName} />);
+                        } else {
+                            return (<></>);
+                        }
+                    })}
                 </GridItem>
                 <GridItem colSpan={2}>
                     <SideBar title='Top Communities'>
@@ -25,10 +46,10 @@ const Home: NextPage = () => {
                                 <Link href="/community">
                                     <Flex align='center'>
                                         <Image
-                                        boxSize="20px"
-                                        src="/favicon.ico"
-                                        position="relative"
-                                        color="blue.500"
+                                            boxSize="20px"
+                                            src="/favicon.ico"
+                                            position="relative"
+                                            color="blue.500"
                                         />
                                         <Flex px={2}>Bored Ape Yacht Club</Flex>
                                     </Flex>
@@ -38,10 +59,10 @@ const Home: NextPage = () => {
                                 <Link href="/community">
                                     <Flex align='center'>
                                         <Image
-                                        boxSize="20px"
-                                        src="/favicon.ico"
-                                        position="relative"
-                                        color="blue.500"
+                                            boxSize="20px"
+                                            src="/favicon.ico"
+                                            position="relative"
+                                            color="blue.500"
                                         />
                                         <Flex px={2}>NM$L Club</Flex>
                                     </Flex>
@@ -91,6 +112,5 @@ const Home: NextPage = () => {
         //     </div>
         // </div>
     )
-}
-
-export default Home
+};
+export default Home;

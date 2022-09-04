@@ -3,7 +3,22 @@ import Link from 'next/link';
 import React from 'react';
 import { FaRegCommentDots, FaShareSquare } from 'react-icons/fa';
 
-const PostItem: React.FC = () => {
+import { Thread } from "../utils/content";
+
+
+type ThumbnailProps = {
+    src: string | null;
+};
+const Thumbnail: React.FC<ThumbnailProps> = ({ src }) => (
+    src ? <Image width='150px' height='100px' src={src} position="relative" color="blue.500" /> : <></>
+);
+
+
+type PostItemProps = {
+    thread: Thread;
+    author: string;
+};
+export const PostItem: React.FC<PostItemProps> = ({ thread, author }) => {
 
     return (
         <Link href="/post">
@@ -16,24 +31,17 @@ const PostItem: React.FC = () => {
                     height="100%" 
                     borderRadius={15}>
                     <Flex align='center' width="95%" maxWidth="900px">
-
-                        <Image
-                            boxSize="90px"
-                            src="/favicon.ico"
-                            position="relative"
-                            color="blue.500"
-                        />
+                        <Thumbnail src={thread.thumbnail}/>
                         <Flex padding="10px 16px" >
                             <Flex direction="column" mr={6}>
                                 <Text fontWeight={600} fontSize="12pt">
-                                    Bored Ape Yacht Club
+                                    {thread.title}
                                 </Text>
                                 <Text fontWeight={400} fontSize="10pt" color="gray.400">
-                                    The Bored Ape Yacht Club is a collection of 10,000 Bored Ape NFTs
-                                    Unique digital collections living on
+                                    {thread.content}
                                 </Text>
                                 <Text fontWeight={400} fontSize="10pt" color="gray.400" mt={2}>
-                                    2022/09/01
+                                    {thread.dateAdded}
                                 </Text>
                             </Flex>
                             <Flex align='center'>
@@ -55,5 +63,5 @@ const PostItem: React.FC = () => {
             </Flex>
         </Link>
     );
-}
+};
 export default PostItem;
