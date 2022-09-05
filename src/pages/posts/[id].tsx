@@ -26,7 +26,6 @@ const Post: NextPage = () => {
                 if (author) setAuthor(author);
             }
         }
-        // TODO handling if thread is 404
     }, [tid]);
 
     return (!thread) ? (
