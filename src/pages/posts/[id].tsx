@@ -1,5 +1,6 @@
 import { Image, Badge, Box, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/react';
 import type { NextPage } from 'next'
+import Error from 'next/error';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
@@ -25,10 +26,12 @@ const Post: NextPage = () => {
                 if (author) setAuthor(author);
             }
         }
-        // TODO handling if tid is bad/NaN
+        // TODO handling if thread is 404
     }, [tid]);
 
-    return (
+    return (!thread) ? (
+        <Error statusCode={404} />
+    ) : (
         <>
             <CommunityHeader />
             <Grid templateColumns='repeat(6, 1fr)' gap={6} mt={10}>
