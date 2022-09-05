@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { FaRegCommentDots, FaShareSquare } from 'react-icons/fa';
 
-import { Thread } from "../utils/content";
+import { Thread } from "../lib/content";
 
 
 type ThumbnailProps = {
@@ -21,7 +21,7 @@ type PostItemProps = {
 export const PostItem: React.FC<PostItemProps> = ({ thread, author }) => {
 
     return (
-        <Link href="/post">
+        <Link href={"/posts/" + thread.threadId}>
             <Flex direction="column" width="100%" height="140px" mt={5} border='1px solid gray' borderRadius={15}>
 
                 <Flex 

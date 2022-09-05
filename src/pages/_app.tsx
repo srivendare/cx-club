@@ -3,10 +3,10 @@ import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 import Head from 'next/head'
 
-import { theme } from '../chakra/theme'
+import { theme } from '../lib/chakra/theme'
 import Layout from '../components/Layout'
-import { populateUsers } from '../utils/user'
-import { populateProposals, populateThreads } from '../utils/content'
+import { populateUsers } from '../lib/user'
+import { populateProposals, populateThreads } from '../lib/content'
 import { useEffect, useState } from 'react'
 
 function MyApp({ Component, pageProps }: AppProps) {

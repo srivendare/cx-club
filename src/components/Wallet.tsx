@@ -4,7 +4,7 @@ import { FaWallet } from "react-icons/fa";
 import { Box, Button, Flex } from '@chakra-ui/react';
 import { MetaMaskInpageProvider } from "@metamask/providers";
 
-import { connectWallet, getCurrentWalletConnected } from "../utils/wallet";
+import { connectWallet, getCurrentWalletConnected } from "../lib/wallet";
 
 
 declare global {

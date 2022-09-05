@@ -37,13 +37,13 @@ export const addCreditSubthread = (user: User) => {
 // used only for demo
 
 export const populateUsers = () => {
-    const justin: User = createUser(0, "justin.z", "", "/favicon.ico");
+    const justin: User = createUser(0, "justin.z", "/chuan21/孙笑川3香港黑帮大佬.jpg", "");
     justin.credit = 110;
-    const chris: User = createUser(1, "chris", "", "/favicon.ico");
+    const chris: User = createUser(1, "chris", "/chuan21/孙笑川1-英雄联盟系列亚索1.jpg", "");
     chris.credit = 55;
-    const ohoho: User = createUser(2, "ohoho123", "", "/favicon.ico");
+    const ohoho: User = createUser(2, "ohoho123", "/chuan21/孙笑川21至尊宝.jpg", "");
     ohoho.credit = 55;
-    const gamma: User = createUser(3, "Gamma", "", "/favicon.ico");
+    const gamma: User = createUser(3, "Gamma", "/chuan21/孙笑川2大佐.jpg", "");
     gamma.credit = 55;
     return [
         justin, chris, ohoho, gamma

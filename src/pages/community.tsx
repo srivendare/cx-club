@@ -3,13 +3,15 @@ import type { NextPage } from 'next'
 import Link from "next/link";
 import { useEffect, useState } from 'react';
 import { FaBitcoin } from 'react-icons/fa';
+
 import CommunityHeader from '../components/CommunityHeader';
 import CommunityNav from '../components/CommunityNav';
 import PostItem from '../components/PostItem';
 import SideBar from '../components/Sidebar';
 import UserBadge from '../components/UserBadge';
-import { Thread } from '../utils/content';
-import { getUser } from '../utils/user';
+import type { Thread } from '../lib/content';
+import { getUser } from '../lib/user';
+
 
 const Community: NextPage = () => {
     const [users, setUsers] = useState([]);

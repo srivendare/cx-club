@@ -7,8 +7,8 @@ import CommunityNav from '../components/CommunityNav'
 import Gallery from '../components/Gallery'
 import PostItem from '../components/PostItem'
 import SideBar from '../components/Sidebar'
-import { Thread } from '../utils/content';
-import { getUser } from '../utils/user';
+import type { Thread } from '../lib/content';
+import { getUser } from '../lib/user';
 
 
 const Home: NextPage = () => {
