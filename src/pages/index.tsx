@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 import CommunityNav from '../components/CommunityNav'
 import Gallery from '../components/Gallery'
+import PostInput from '../components/PostInput';
 import PostItem from '../components/PostItem'
 import SideBar from '../components/Sidebar'
 import type { Thread } from '../lib/content';
@@ -38,6 +39,7 @@ const Home: NextPage = () => {
                             return (<></>);
                         }
                     })}
+                    <PostInput />
                 </GridItem>
                 <GridItem colSpan={2}>
                     <SideBar title='Top Communities'>
