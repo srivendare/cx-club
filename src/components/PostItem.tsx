@@ -22,45 +22,34 @@ export const PostItem: React.FC<PostItemProps> = ({ thread, author }) => {
 
     return (
         <Link href={"/posts/" + thread.threadId}>
-            <Flex direction="column" width="100%" height="140px" mt={5} border='1px solid gray' borderRadius={15}>
-
-                <Flex 
-                    justifyContent="center" 
-                    bg="gray.600" 
-                    _hover={{ bg: useColorModeValue('gray.300', 'gray.300') }} 
-                    height="100%" 
-                    borderRadius={15}>
-                    <Flex align='center' width="95%" maxWidth="900px">
-                        <Thumbnail src={thread.thumbnail}/>
-                        <Flex padding="10px 16px" >
-                            <Flex direction="column" mr={6}>
-                                <Text fontWeight={600} fontSize="12pt">
-                                    {thread.title}
-                                </Text>
-                                <Text fontWeight={400} fontSize="10pt" color="gray.400">
-                                    {thread.content}
-                                </Text>
-                                <Text fontWeight={400} fontSize="10pt" color="gray.400" mt={2}>
-                                    {thread.dateAdded}
-                                </Text>
-                            </Flex>
-                            <Flex align='center'>
-                                <Box
-                                    as={FaRegCommentDots}
-                                    size="30px"
-                                    color="gray.400"
-                                    mr={5}
-                                />
-                                <Box
-                                    as={FaShareSquare}
-                                    size="30px"
-                                    color="gray.400"
-                                />
-                            </Flex>
-                        </Flex>
-                    </Flex>
-                </Flex>
-            </Flex>
+            <Box p={4} display={{ md: 'flex' }} border='1px solid gray' borderRadius={15} mt={3}>
+                <Box flexShrink={0}>
+                    <Image
+                        borderRadius='lg'
+                        width={{ md: 40 }}
+                        src={thread.thumbnail}
+                        alt='Woman paying for a purchase'
+                    />
+                </Box>
+                <Box mt={{ base: 4, md: 0 }} ml={{ md: 6 }}>
+                    <Link
+                        mt={1}
+                        display='block'
+                        fontWeight='bold'
+                        fontSize='lg'
+                        lineHeight='normal'
+                        href='#'
+                    >
+                        {thread.title}
+                    </Link>
+                    <Text mt={2} fontSize='sm' color='gray.500'>
+                        {thread.content}
+                    </Text>
+                    <Text mt={1} fontSize='sm' color='gray.500'>
+                        {thread.dateAdded}
+                    </Text>
+                </Box>
+            </Box>
         </Link>
     );
 };
