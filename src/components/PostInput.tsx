@@ -1,5 +1,4 @@
-import { theme, CSSReset, Heading, ButtonGroup, Button, Textarea, Input, Box, Select, Flex, Text } from '@chakra-ui/react';
-import { ThemeProvider } from '@emotion/react';
+import { Button, Textarea, Input, Box, Select, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
 
 type PostInputProps = {
@@ -13,13 +12,13 @@ const PostInput: React.FC<PostInputProps> = () => {
             borderRadius={15} align='center' >
 
             <Flex w='70%' direction='column' mb={5}>
-                <Text textAlign='left' textAlign='left' p={2, 2} fontWeight='bold' fontSize='xl'> Create a Post </Text>
-                <Text textAlign='left' textAlign='left' p={2, 2}> Topic </Text>
+                <Text textAlign='left' p={2, 2} fontWeight='bold' fontSize='xl'> Create a Post </Text>
+                <Text textAlign='left' p={2, 2}> Topic </Text>
                 <Input placeholder='Topic'
                     border='1px solid gray'
 
                     borderRadius={7.5} />
-                <Text textAlign='left' textAlign='left' p={2, 2}> Commmunity </Text>
+                <Text textAlign='left' p={2, 2}> Commmunity </Text>
                 <Select placeholder='Tag' mt={2}>
                     <option value='option1'>Option 1</option>
                     <option value='option2'>Option 2</option>
