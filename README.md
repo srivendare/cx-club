@@ -2,7 +2,7 @@
 
 Explore communities for NFT ethusiasts
 
-[See Preview on Vercel](https://cx-club.vercel.app/)
+[See Preview on Vercel](https://onlybuilders.vercel.app/)
 
 ## For Dev
 
