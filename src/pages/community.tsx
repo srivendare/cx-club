@@ -6,6 +6,7 @@ import { FaBitcoin } from 'react-icons/fa';
 
 import CommunityHeader from '../components/CommunityHeader';
 import CommunityNav from '../components/CommunityNav';
+import PostInput from '../components/PostInput';
 import PostItem from '../components/PostItem';
 import SideBar from '../components/Sidebar';
 import UserBadge from '../components/UserBadge';
@@ -24,6 +25,13 @@ const Community: NextPage = () => {
         if (threadsData) setThreads(JSON.parse(threadsData));
     }, []);
 
+    const onNewPostCreated = () => {
+        const usersData = window.localStorage.getItem('users');
+        if (usersData) setUsers(JSON.parse(usersData));
+        const threadsData = window.localStorage.getItem('threads');
+        if (threadsData) setThreads(JSON.parse(threadsData));
+    }
+
     return (
         <>
             <CommunityHeader />
@@ -40,6 +48,7 @@ const Community: NextPage = () => {
                             return (<></>);
                         }
                     })}
+                    <PostInput onSubmitted={onNewPostCreated}/>
                 </GridItem>
                 <GridItem colSpan={2}>
                     <UserBadge />
