@@ -5,6 +5,7 @@ type TextContent = {
     dateModified: string;
     title: string | null;
     content: string;
+    communityId: number;
 };
 
 
@@ -17,13 +18,13 @@ export type Thread = TextContent & {
 };
 
 export const createThread = (
-    uid: number, title: string | null, content: string, 
+    uid: number, title: string | null, content: string, communityId: number,
     threadId: number, thumbnail: string | null
 ) => {
     const dateAdded = new Date(Date.now()).toDateString();
     const dateModified = new Date(Date.now()).toDateString();
     let subthreads: Thread[] = [];
-    let thread: Thread = { uid, dateAdded, dateModified, title, content, threadId, thumbnail, subthreads };
+    let thread: Thread = { uid, dateAdded, dateModified, title, content, communityId, threadId, thumbnail, subthreads };
     return thread;
 };
 
@@ -55,13 +56,13 @@ export type ProposalContent = TextContent & {
 };
 
 export const createProposal = (
-    uid: number, title: string | null, content: string, 
+    uid: number, title: string | null, content: string, communityId: number,
     proposalId: number
 ) => {
     const dateAdded = new Date(Date.now()).toDateString();
     const dateModified = new Date(Date.now()).toDateString();
     let status: ProposalStatus = ProposalStatus.Open;
-    let proposal: ProposalContent = { uid, dateAdded, dateModified, title, content, proposalId, status };
+    let proposal: ProposalContent = { uid, dateAdded, dateModified, title, content, communityId, proposalId, status };
     return proposal;
 };
 
@@ -69,7 +70,7 @@ export const createProposal = (
 // used only for demo
 
 export const populateProposals = () => {
-    let proposals: ProposalContent[] = [createProposal(0, "1.分红规则", "准入门槛，月活跃度达到100以上才参与分红", 0)];
+    let proposals: ProposalContent[] = [createProposal(0, "1.分红规则", "准入门槛，月活跃度达到100以上才参与分红", 0, 0)];
     return proposals;
 };
 
@@ -81,14 +82,15 @@ export const populateThreads = () => {
         "fpx在巴黎夺冠粉丝叫自己巴黎人\n" + 
         "edg在冰岛夺冠粉丝叫自己冰岛人\n" + 
         "要是拳头在日本办世界赛，我们lpl的某一只队伍夺冠了，粉丝是不是要叫自己日本人啊\n",
+        0, 
         0,
         "/arts/Rectangle 33.png"
     );
     let subthreads: Thread[] = [
-        createThread(1, null, "RNG没冠军的原因找到了", 101, null),
+        createThread(1, null, "RNG没冠军的原因找到了", 0, 101, null),
         // TODO mitigate subthread id colliding with main threads
-        createThread(2, null, "cnm", 102, null),
-        createThread(3, null, "然后呢", 103, null)
+        createThread(2, null, "cnm", 0, 102, null),
+        createThread(3, null, "然后呢", 0, 103, null)
 
     ];
     thread.subthreads = subthreads;
@@ -98,6 +100,7 @@ export const populateThreads = () => {
             1, 
             "我觉得开发一个Web3的高定周边也不错", 
             "The next generation of Web3 Social E-commerce. ...", 
+            0, 
             1, 
             "/arts/Rectangle 34.png"
         ),
@@ -105,6 +108,7 @@ export const populateThreads = () => {
             2, 
             "Not all girls are cute and lovely. ", 
             "We wanna add some ‘bad things’ into the metaverse. ",
+            0,
             2, 
             "/arts/Rectangle 44.png"
         ),
@@ -112,6 +116,7 @@ export const populateThreads = () => {
             3, 
             "NFT Tiffany & Co", 
             "NFTiffs represent a collection of 250 digital passes, offered by Tiffany & Co. ",
+            0,
             3, 
             null
         )

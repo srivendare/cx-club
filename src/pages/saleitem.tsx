@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 
-const Sale: NextPage = () => {
+const SalePage: NextPage = () => {
     return <h1>Pudgy penguin</h1>;
 }
-export default Sale;
+export default SalePage;

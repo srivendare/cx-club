@@ -11,7 +11,7 @@ import { getThread, Thread } from '../../lib/content';
 import { getUser, User } from '../../lib/user';
 
 
-const Post: NextPage = () => {
+const PostPage: NextPage = () => {
     const [thread, setThread] = useState<Thread>();
     const [author, setAuthor] = useState<User>();
     const [users, setUsers] = useState([]);
@@ -78,4 +78,4 @@ const Post: NextPage = () => {
         </>
     );
 }
-export default Post;
+export default PostPage;

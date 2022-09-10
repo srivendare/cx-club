@@ -4,14 +4,14 @@ import Link from "next/link";
 import { useEffect, useState } from 'react';
 import { FaBitcoin } from 'react-icons/fa';
 
-import CommunityHeader from '../components/CommunityHeader';
-import CommunityNav from '../components/CommunityNav';
-import PostInput from '../components/PostInput';
-import PostItem from '../components/PostItem';
-import SideBar from '../components/Sidebar';
-import UserBadge from '../components/UserBadge';
-import type { Thread } from '../lib/content';
-import { getUser } from '../lib/user';
+import CommunityHeader from '../../components/CommunityHeader';
+import CommunityNav from '../../components/CommunityNav';
+import PostInput from '../../components/PostInput';
+import PostItem from '../../components/PostItem';
+import SideBar from '../../components/Sidebar';
+import UserBadge from '../../components/UserBadge';
+import type { Thread } from '../../lib/content';
+import { getUser } from '../../lib/user';
 
 
 const CommunityPage: NextPage = () => {

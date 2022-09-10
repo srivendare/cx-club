@@ -11,7 +11,7 @@ import type { Thread } from '../lib/content';
 import { getUser } from '../lib/user';
 
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
     const [users, setUsers] = useState([]);
     const [threads, setThreads] = useState([]);
 
@@ -75,4 +75,4 @@ const Home: NextPage = () => {
         </>
     )
 };
-export default Home;
+export default HomePage;
