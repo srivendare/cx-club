@@ -32,8 +32,8 @@ function App({ Component, pageProps }: AppProps) {
     return (
         <ChakraProvider theme={theme}>
             <Head>
-                <title>CX CLUB</title>
-                <meta name="description" content="cx club" />
+                <title>Onlybuilders</title>
+                <meta name="description" content="Only builders." />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
