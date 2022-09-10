@@ -64,7 +64,7 @@ const PostInput: React.FC<PostInputProps> = (props) => {
                 </Button>
                 <Button width='full' color='gray.700' mt={2} >Reset</Button>
             </Flex>
-        </Box >
+        </Box>
     )
 };
 export default PostInput;

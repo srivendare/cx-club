@@ -30,7 +30,7 @@ const Community: NextPage = () => {
         if (usersData) setUsers(JSON.parse(usersData));
         const threadsData = window.localStorage.getItem('threads');
         if (threadsData) setThreads(JSON.parse(threadsData));
-    }
+    };
 
     return (
         <>
@@ -69,8 +69,7 @@ const Community: NextPage = () => {
                     </SideBar>
                 </GridItem>
             </Grid>
-            {/* TODO create-new-post component */}
         </>
-    )
+    );
 }
 export default Community;

@@ -4,7 +4,7 @@ import React from 'react';
 const CommunityHeader: React.FC = () => {
 
     return (
-        <Flex direction="column" width="100%" height="190px" mt={2}>
+        <Flex direction="column" width="100%" height="190px">
             <Box height="50%" bg="gray.700" />
             <Flex justifyContent="center" bg="gray.600" height="50%">
                 <Flex width="95%" maxWidth="900px">

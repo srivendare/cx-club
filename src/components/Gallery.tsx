@@ -1,5 +1,5 @@
-import { Box, Flex, Grid, GridItem, Image, Spacer } from '@chakra-ui/react';
-import Link from 'next/link';
+import { Box, Flex, Grid, GridItem, Image, Spacer, Link } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import React from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
@@ -11,9 +11,8 @@ const GalleryItem: React.FC<Props> = ({ children }) => {
     
     return (
         <Flex>
-            <Spacer />
-            <Link href="/community">
-                <Flex 
+            <NextLink href="/community">
+                <Link 
                     border="5px solid"
                     borderColor="transparent"
                     borderRadius="15"
@@ -21,8 +20,8 @@ const GalleryItem: React.FC<Props> = ({ children }) => {
                         borderColor: "white"
                     }}>
                     {children}
-                </Flex>
-            </Link>
+                </Link>
+            </NextLink>
         </Flex>
     );
 };

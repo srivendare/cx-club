@@ -85,9 +85,10 @@ export const populateThreads = () => {
         "/arts/Rectangle 33.png"
     );
     let subthreads: Thread[] = [
-        createThread(1, null, "RNG没冠军的原因找到了", 4, null),
-        createThread(2, null, "cnm", 5, null),
-        createThread(3, null, "然后呢", 6, null)
+        createThread(1, null, "RNG没冠军的原因找到了", 101, null),
+        // TODO mitigate subthread id colliding with main threads
+        createThread(2, null, "cnm", 102, null),
+        createThread(3, null, "然后呢", 103, null)
 
     ];
     thread.subthreads = subthreads;

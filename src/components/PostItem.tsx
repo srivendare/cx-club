@@ -1,5 +1,5 @@
-import { Box, Text, Image, useColorModeValue } from '@chakra-ui/react';
-import Link from 'next/link';
+import { Box, Text, Image, useColorModeValue, Link } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import React from 'react';
 
 import { Thread } from "../lib/content";
@@ -9,16 +9,16 @@ type ThumbnailProps = {
     src: string | null;
 };
 const Thumbnail: React.FC<ThumbnailProps> = ({ src }) => (
-    src ? 
-        <Image 
-            borderRadius='lg' 
+    src ?
+        <Image
+            borderRadius='lg'
             width={{ md: 40 }}
-            height='100px' 
-            src={src} 
-            position="relative" 
+            height='100px'
+            src={src}
+            position="relative"
             color="blue.500"
-        /> 
-    : 
+        />
+        :
         <></>
 );
 
@@ -30,9 +30,9 @@ type PostItemProps = {
 export const PostItem: React.FC<PostItemProps> = ({ thread, author }) => {
 
     return (
-        <Link href={"/posts/" + thread.threadId}>
-            <Box p={4} display={{ md: 'flex' }} border='1px solid gray' borderRadius={15} mt={3} 
-                _hover={{bg: useColorModeValue('gray.300', 'gray.300')}}
+        <NextLink href={"/posts/" + thread.threadId} passHref>
+            <Link p={4} display={{ md: 'flex' }} border='1px solid gray' borderRadius={15} mt={3}
+                _hover={{ bg: useColorModeValue('gray.300', 'gray.300') }}
             >
                 <Box flexShrink={0}>
                     <Thumbnail src={thread.thumbnail} />
@@ -51,8 +51,8 @@ export const PostItem: React.FC<PostItemProps> = ({ thread, author }) => {
                         {thread.dateAdded}
                     </Text>
                 </Box>
-            </Box>
-        </Link>
+            </Link>
+        </NextLink>
     );
 };
 export default PostItem;
