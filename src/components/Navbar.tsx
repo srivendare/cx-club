@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
             <ReturnerToHomepage>
                 <Flex align='center'>
                     <Image src='/favicon.ico' boxSize='50px' />
-                    <Flex pl={3} pr={4} fontSize='18px' fontWeight='900' color='white'> CX Club</Flex>
+                    <Flex pl={3} pr={4} fontSize='18px' fontWeight='900' color='white'>Onlybuilders</Flex>
                 </Flex>
             </ReturnerToHomepage>
 

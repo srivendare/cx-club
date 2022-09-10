@@ -9,7 +9,7 @@ import { populateUsers } from '../lib/user'
 import { populateProposals, populateThreads } from '../lib/content'
 import { useEffect, useState } from 'react'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
     const [users, setUsers] = useState(populateUsers());
     const [threads, setThreads] = useState(populateThreads());
     const [proposals, setProposals] = useState(populateProposals);
@@ -44,4 +44,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     )
 }
-export default MyApp;
+export default App;
