@@ -6,19 +6,15 @@ Explore communities for NFT ethusiasts
 
 ## For Dev
 
-After cloning the repository into your local directory, go to the repository's root directory and install node dependencies using your node package manager:
+After cloning the repository into your local directory, go to the repository's root directory and install node dependencies using `yarn`:
 
 ```bash
-npm i
-# or 
 yarn
 ```
 
 Then, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
