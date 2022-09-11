@@ -4,6 +4,7 @@ import { addSubthread, createThread, Thread } from '../lib/content';
 
 type CommentInputProps = {
     threadId: number;
+    communityId: number;
     onSubmitted: () => void;
 };
 
@@ -24,7 +25,7 @@ const CommentInput: React.FC<CommentInputProps> = (props) => {
             return;
         }
         threads = JSON.parse(threadsData);
-        const newSubthread: Thread = createThread(0, null, inputText, threads.length, null);
+        const newSubthread: Thread = createThread(0, null, inputText, props.communityId, threads.length * 100, null);
         threads.map((t) => {
             if (t.threadId === props.threadId) addSubthread(t, newSubthread);
         });

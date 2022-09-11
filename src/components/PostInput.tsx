@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { createThread, Thread } from '../lib/content';
 
 type PostInputProps = {
+    communityId: number;
     onSubmitted: () => void;
 };
 
@@ -29,7 +30,8 @@ const PostInput: React.FC<PostInputProps> = (props) => {
             return;
         }
         threads = JSON.parse(threadsData);
-        const newThread: Thread = createThread(0, inputTitle, inputText, threads.length, null);
+        // TODO community id gen
+        const newThread: Thread = createThread(0, inputTitle, inputText, props.communityId, threads.length, null);
         threads.push(newThread);
         window.localStorage.setItem("threads", JSON.stringify(threads));
         console.log(window.localStorage.getItem('threads'));

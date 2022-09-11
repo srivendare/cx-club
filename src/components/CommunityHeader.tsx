@@ -1,7 +1,12 @@
 import { Box, Flex, Button, Text, Image } from '@chakra-ui/react';
 import React from 'react';
+import { Community } from '../lib/community';
 
-const CommunityHeader: React.FC = () => {
+type CommunityHeaderProps = {
+    community: Community;
+};
+
+const CommunityHeader: React.FC<CommunityHeaderProps> = ({ community }) => {
 
     return (
         <Flex direction="column" width="100%" height="190px">
@@ -13,7 +18,7 @@ const CommunityHeader: React.FC = () => {
                     <Image
                         borderRadius="full"
                         boxSize="90px"
-                        src="/favicon.ico"
+                        src={community.logo}
                         position="relative"
                         top={-3}
                         color="blue.500"
@@ -22,11 +27,12 @@ const CommunityHeader: React.FC = () => {
                     <Flex padding="10px 16px" >
                         <Flex direction="column" mr={6}>
                             <Text fontWeight={800} fontSize="16pt">
-                                Bored Ape Yacht Club
+                                {community.name}
                             </Text>
-                            <Text fontWeight={600} fontSize="10pt" color="gray.400">
-                                The Bored Ape Yacht Club is a collection of 10,000 Bored Ape NFTs
-                                Unique digital collections living on
+                            <Text fontWeight={600} fontSize="10pt" color="gray.400" 
+                                width='550px' mr={5}
+                            >
+                                {community.description}
                             </Text>
                         </Flex>
                         <Flex>
