@@ -20,6 +20,9 @@ export const createCommunity = (
     isShareholder: (u: User) => boolean
 ) => ({ communityId, name, description, logo, thumbnail, poolWalletAddr, isShareholder });
 
+export const getCommunity = (communityId: number, communities: Community[]) => (
+    communities.find((c) => (c.communityId === communityId))
+);
 
 // for demo use only
 

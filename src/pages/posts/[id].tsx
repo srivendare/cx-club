@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import Comment from '../../components/Comment';
 import CommentInput from '../../components/CommentInput';
 import CommunityHeader from '../../components/CommunityHeader';
+import { Community, getCommunity } from '../../lib/community';
 import { getThread, Thread } from '../../lib/content';
 import { getUser, User } from '../../lib/user';
 
@@ -14,25 +15,32 @@ import { getUser, User } from '../../lib/user';
 const PostPage: NextPage = () => {
     const [thread, setThread] = useState<Thread>();
     const [author, setAuthor] = useState<User>();
+    const [community, setCommunity] = useState<Community>();
     const [users, setUsers] = useState([]);
     const router = useRouter();
     const tid = Number(router.query.id);
 
     useEffect(() => {
         const threads = window.localStorage.getItem('threads');
-        const users = window.localStorage.getItem('users');
-        if (users) setUsers(JSON.parse(users));
-        if (threads && users) {
+        const usersData = window.localStorage.getItem('users');
+        const communities = window.localStorage.getItem('communities');
+        if (threads && usersData && communities) {
+            setUsers(JSON.parse(usersData));
             const thread = getThread(tid, JSON.parse(threads));
             if (thread) {
                 setThread(thread);
-                const author = getUser(thread.uid, JSON.parse(users));
+                const author = getUser(thread.uid, users);
                 if (author) setAuthor(author);
+                if (communities) {
+                    const community = getCommunity(thread.communityId, JSON.parse(communities));
+                    if (community) setCommunity(community);
+                }
             }
         }
     }, [tid]);
 
     const onCommentSubmitted = () => {
+        // update states
         const threads = window.localStorage.getItem('threads');
         const users = window.localStorage.getItem('users');
         if (threads && users) {
@@ -45,16 +53,16 @@ const PostPage: NextPage = () => {
         }
     };
 
-    return (!thread || !author) ? (
+    return (!thread || !author || !community) ? (
         <Error statusCode={404} />
     ) : (
         <>
-            <CommunityHeader />
+            <CommunityHeader community={community}/>
 
             <Grid templateColumns='repeat(6, 1fr)' gap={6} mt={10}>
                 <GridItem colSpan={1} />
                 <GridItem colSpan={3} >
-                    <Heading>{thread?.title}</Heading>
+                    <Heading>{thread.title}</Heading>
                 </GridItem>
             </Grid>
 
@@ -71,7 +79,7 @@ const PostPage: NextPage = () => {
             <Grid templateColumns='repeat(6, 1fr)' gap={6} mt={5}>
                 <GridItem colSpan={1} />
                 <GridItem colSpan={4}>
-                    <CommentInput threadId={thread?.threadId} onSubmitted={onCommentSubmitted}/>
+                    <CommentInput threadId={thread.threadId} communityId={community.communityId} onSubmitted={onCommentSubmitted}/>
                 </GridItem>
             </Grid>
 

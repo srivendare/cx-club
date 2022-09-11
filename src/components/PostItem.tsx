@@ -25,7 +25,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ src }) => (
 
 type PostItemProps = {
     thread: Thread;
-    author: string;
+    author: string;  // TODO pass the full author user into postitem?
 };
 export const PostItem: React.FC<PostItemProps> = ({ thread, author }) => {
 
