@@ -18,7 +18,7 @@ const CommunityHeader: React.FC<CommunityHeaderProps> = ({ community }) => {
                     <Image
                         borderRadius="full"
                         boxSize="90px"
-                        src="/favicon.ico"
+                        src={community.logo}
                         position="relative"
                         top={-3}
                         color="blue.500"
@@ -29,7 +29,9 @@ const CommunityHeader: React.FC<CommunityHeaderProps> = ({ community }) => {
                             <Text fontWeight={800} fontSize="16pt">
                                 {community.name}
                             </Text>
-                            <Text fontWeight={600} fontSize="10pt" color="gray.400">
+                            <Text fontWeight={600} fontSize="10pt" color="gray.400" 
+                                width='550px' mr={5}
+                            >
                                 {community.description}
                             </Text>
                         </Flex>

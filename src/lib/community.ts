@@ -42,18 +42,18 @@ export const populateCommunities = () => {
     ));
     communities.push(createCommunity(
         1, 'Azuki', 'A brand for the metaverse, built by the community.',
-        '/arts/Rectangle 7', '/arts/Rectangle 7',
+        '/arts/Rectangle 7.png', '/arts/Rectangle 7.png',
         '', (u: User) => isMemberOfCommunity(u, 1)
     ));
     communities.push(createCommunity(
         2, 'MIMIC SHHANS', 'Cats are all we need!',
-        '/arts/Rectangle 9', '/arts/Rectangle 9',
+        '/arts/Rectangle 9.png', '/arts/Rectangle 9.png',
         '', (u: User) => isMemberOfCommunity(u, 2)
     ));
     communities.push(createCommunity(
         3, 'mfers', 'mfers are generated entirely from hand drawings by sartoshi. \
             this project is in the public domain; feel free to use mfers any way you want.',
-        '/arts/Rectangle 8', '/arts/Rectangle 8',
+        '/arts/Rectangle 8.png', '/arts/Rectangle 8.png',
         '', (u: User) => isMemberOfCommunity(u, 3)
     ));
     return communities;

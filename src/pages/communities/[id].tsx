@@ -22,9 +22,9 @@ const CommunityPage: NextPage = () => {
     const [threads, setThreads] = useState<Thread[]>([]);
     const [community, setCommunity] = useState<Community>();
     const router = useRouter();
-    const cid = Number(router.query.id);
-
+    
     useEffect(() => {
+        const cid = Number(router.query.id);  // TODO write this as a state
         const usersData = window.localStorage.getItem('users');
         if (usersData) setUsers(JSON.parse(usersData));
         const threadsData = window.localStorage.getItem('threads');
@@ -34,18 +34,22 @@ const CommunityPage: NextPage = () => {
             setThreads(threads);
         }
         const communitiesData = window.localStorage.getItem('communities');
-        console.log(communitiesData);
         if (communitiesData) {
             const community = getCommunity(cid, JSON.parse(communitiesData));
             if (community) setCommunity(community);
         }
-    }, [cid]);
+    }, []);
 
     const onNewPostCreated = () => {
         const usersData = window.localStorage.getItem('users');
         if (usersData) setUsers(JSON.parse(usersData));
         const threadsData = window.localStorage.getItem('threads');
-        if (threadsData) setThreads(JSON.parse(threadsData));
+        if (threadsData) {
+            const allThreads: Thread[] = JSON.parse(threadsData);
+            const cid = Number(router.query.id);
+            const threads = allThreads.filter((t) => t.communityId === cid);
+            setThreads(threads);
+        }
     };
 
     return !community ? (
