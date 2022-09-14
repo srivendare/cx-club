@@ -54,10 +54,7 @@ const ProfileCard: React.FC<ProfileCardProps> = () => {
                 <Text color='white'>User name</Text>
 
             </FormControl>
-            <FormControl id="email" isRequired>
-                <Text color='white'>Email Address</Text>
 
-            </FormControl>
             <FormControl id="Others" isRequired>
                 <Text color='white'>Others</Text>
 
