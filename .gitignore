@@ -1,8 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# package managers
+# npm - use yarn instead
 /package-lock.json
-/yarn.lock
 
 # dependencies
 /node_modules

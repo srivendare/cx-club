@@ -1,38 +1,48 @@
-import { Box, Flex, Grid, GridItem, Image, Spacer } from '@chakra-ui/react';
-import Link from 'next/link';
+import { Box, Flex, Grid, GridItem, Image, Spacer, Link } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import React from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+import { Community } from '../lib/community';
 
-type Props = {
-    children: React.ReactNode;
+
+type GalleryItemProps = {
+    communityId: number;
+    thumbnail: string;
 };
+const GalleryItem: React.FC<GalleryItemProps> = ({ communityId, thumbnail }) => {
 
-const GalleryItem: React.FC<Props> = ({ children }) => {
-    
     return (
-        <Flex>
-            <Spacer />
-            <Link href="/community">
-                <Flex 
+        <Flex> {/* TODO link or nextlink style as flex */}
+            <NextLink href={'/communities/' + communityId} passHref>
+                <Link
                     border="5px solid"
                     borderColor="transparent"
                     borderRadius="15"
                     _hover={{
                         borderColor: "white"
                     }}>
-                    {children}
-                </Flex>
-            </Link>
+                    <Image
+                        height='120px'
+                        borderRadius={10}
+                        src={thumbnail} />
+                </Link>
+            </NextLink>
         </Flex>
     );
 };
 
-const Gallery: React.FC = () => {
+type GalleryProps = {
+    communities: Community[];
+};
+const Gallery: React.FC<GalleryProps> = ({ communities }) => {
+    const gridlength = communities.length + 2;
 
     return (
         <Flex align='center' my={4}>
-            <Grid width="100%" templateColumns='repeat(7, 1fr)' gap={5} mt={5}>
-                <GridItem colSpan={1} >
+            <Grid templateColumns={'repeat(' + gridlength + ', 1fr)'}
+                width="100%" gap={5} mt={5}
+            >
+                <GridItem colSpan={1}>
                     <Flex>
                         <Spacer />
                         <Box
@@ -43,46 +53,13 @@ const Gallery: React.FC = () => {
                         />
                     </Flex>
                 </GridItem>
-                <GridItem colSpan={1} >
-                    <GalleryItem>
-                        <Image
-                            height='120px'
-                            borderRadius={10}
-                            src="./arts/Rectangle 7.png" />
-                    </GalleryItem>
-                </GridItem>
-                <GridItem colSpan={1} >
-                    <GalleryItem>
-                        <Image
-                            height='120px'
-                            borderRadius={10}
-                            src="./arts/Rectangle 8.png" />
-                    </GalleryItem>
-                </GridItem>
-                <GridItem colSpan={1} >
-                    <GalleryItem>
-                        <Image
-                            height='120px'
-                            borderRadius={10}
-                            src="./arts/Rectangle 9.png" />
-                    </GalleryItem>
-                </GridItem>
-                <GridItem colSpan={1} >
-                    <GalleryItem>
-                        <Image
-                            height='120px'
-                            borderRadius={10}
-                            src="./arts/Rectangle 10.png" />
-                    </GalleryItem>
-                </GridItem>
-                <GridItem colSpan={1} >
-                    <GalleryItem>
-                        <Image
-                            height='120px'
-                            borderRadius={10}
-                            src="./arts/Rectangle 11.png" />
-                    </GalleryItem>
-                </GridItem>
+
+                {communities.map((co, i) => (
+                    <GridItem key={i} colSpan={1} >
+                        <GalleryItem communityId={co.communityId} thumbnail={co.thumbnail} />
+                    </GridItem>
+                ))}
+
                 <GridItem colSpan={1}>
                     <Box
                         as={FaAngleRight}
